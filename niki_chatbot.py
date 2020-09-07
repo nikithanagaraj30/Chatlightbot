@@ -8,7 +8,7 @@ from Adafruit_IO import Client, Feed
 aio = Client(YOUR_AIO_USERNAME,YOUR_AIO_KEY) 
   
 #create feed
-new= Feed(name='chatbot') 
+new= Feed(name='chatbot1') 
 result= aio.create_feed(new) 
 
 #logging exception handler
@@ -21,13 +21,13 @@ import requests #Getting the data from the cloud
     
 def ledoff(bot,update):
     value = Data(value=0) #Sending a value to a feed
-    value_send = aio.create_data('chatbot',value)
+    value_send = aio.create_data('chatbot1',value)
     chat_id = bot.message.chat_id
     update.bot.sendPhoto(chat_id=chat_id, photo="https://tse3.mm.bing.net/th?id=OIP.dTmDdvOWEO-0s7t0Z3Yr4gHaJ4&pid=Api&P=0&w=300&h=300", caption= "light off")
     
 def ledon(bot,update):
     value = Data(value=1)
-    value_send = aio.create_data('chatbot',value)
+    value_send = aio.create_data('chatbot1',value)
     chat_id = bot.message.chat_id
     update.bot.sendPhoto(chat_id=chat_id, photo="https://tse1.mm.bing.net/th?id=OIP.E0jSIrVy0lS6LIULac0rngHaKj&pid=Api&P=0&w=300&h=300", caption="light on")
     
